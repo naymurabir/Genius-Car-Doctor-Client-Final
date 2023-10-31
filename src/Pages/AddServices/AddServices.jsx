@@ -31,6 +31,9 @@ const AddServices = () => {
                     e.target.reset()
                 }
             })
+            .catch(error => {
+                console.log("Error", error.message);
+            })
     }
 
     return (

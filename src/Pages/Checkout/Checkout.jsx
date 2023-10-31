@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProviders/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Checkout = () => {
     const { user } = useContext(AuthContext)
@@ -32,6 +33,22 @@ const Checkout = () => {
         axios.post('http://localhost:5000/bookings', newBooking)
             .then(res => {
                 console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: "A new booking has been replaced to cart.",
+                        showConfirmButton: false,
+                        background: '#343436',
+                        heightAuto: '100px',
+                        color: 'white',
+                        timer: 2000
+                    })
+                    e.target.reset()
+                }
+            })
+            .catch(error => {
+                console.log("Error:", error.message);
             })
     }
 

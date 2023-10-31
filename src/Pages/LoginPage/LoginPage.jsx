@@ -1,7 +1,7 @@
 import loginImg from '../../assets/images/login/login.svg'
 import fbImg from '../../assets/images/login/fb.png'
 import googleImg from '../../assets/images/login/google 1.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProviders/AuthProvider';
 import Swal from 'sweetalert2';
@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 const LoginPage = () => {
 
     const { signInUser, googleLogin } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleSignIn = e => {
         e.preventDefault()
@@ -23,6 +25,7 @@ const LoginPage = () => {
             .then(result => {
                 const loggedUser = result.user
                 console.log(loggedUser);
+                navigate(location?.state ? location?.state : '/')
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -55,6 +58,7 @@ const LoginPage = () => {
             .then(result => {
                 const user = result.user
                 console.log(user);
+                navigate(location?.state ? location?.state : '/')
                 Swal.fire({
                     position: 'center',
                     icon: 'success',

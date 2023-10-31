@@ -35,7 +35,10 @@ const Navbar = () => {
 
         {
             user ?
-                <button className="text-base font-semibold mr-3" onClick={handleLogout}>Log Out</button>
+                <>
+                    <NavLink to="/bookings" className="text-base font-semibold mr-3">My Bookings</NavLink>
+                    <button className="text-base font-semibold mr-3" onClick={handleLogout}>Log Out</button>
+                </>
                 : <NavLink to="/login" className="text-base font-semibold mr-3">Login</NavLink>
         }
     </>

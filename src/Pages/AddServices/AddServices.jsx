@@ -14,7 +14,7 @@ const AddServices = () => {
         const newService = { title, type, img, price, description }
         console.log(newService);
 
-        axios.post('https://genius-car-doctor-server-omega.vercel.app/services', newService)
+        axios.post('https://genius-car-doctor-server-side.vercel.app/services', newService)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

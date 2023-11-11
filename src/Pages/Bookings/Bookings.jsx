@@ -11,7 +11,7 @@ const Bookings = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get(`https://genius-car-doctor-server-omega.vercel.app/bookings?email=${user?.email}`, { withCredentials: true })
+            axios.get(`https://genius-car-doctor-server-side.vercel.app/bookings?email=${user?.email}`, { withCredentials: true })
                 .then(res => {
                     setBookings(res.data)
                 })
@@ -28,7 +28,7 @@ const Bookings = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`https://genius-car-doctor-server-omega.vercel.app/bookings/${id}`, {
+                    fetch(`https://genius-car-doctor-server-side.vercel.app/bookings/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
@@ -50,7 +50,7 @@ const Bookings = () => {
     }
 
     const handleUpdateBooking = (id) => {
-        fetch(`https://genius-car-doctor-server-omega.vercel.app/bookings/${id}`, {
+        fetch(`https://genius-car-doctor-server-side.vercel.app/bookings/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

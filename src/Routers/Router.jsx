@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://genius-car-doctor-server-omega.vercel.app/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://genius-car-doctor-server-side.vercel.app/services/${params.id}`)
             },
             {
                 path: '/bookings',
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`https://genius-car-doctor-server-omega.vercel.app/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://genius-car-doctor-server-side.vercel.app/services/${params.id}`)
             }
         ]
     }

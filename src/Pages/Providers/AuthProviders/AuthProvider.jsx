@@ -37,13 +37,13 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             setLoading(false)
             if (currentUser) {
-                axios.post('https://genius-car-doctor-server-omega.vercel.app/jwt', loggedUser, { withCredentials: true })
+                axios.post('https://genius-car-doctor-server-side.vercel.app/jwt', loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })
             }
             else {
-                axios.post('https://genius-car-doctor-server-omega.vercel.app/logout', loggedUser, { withCredentials: true })
+                axios.post('https://genius-car-doctor-server-side.vercel.app/logout', loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })

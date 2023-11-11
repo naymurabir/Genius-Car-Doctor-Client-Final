@@ -30,7 +30,7 @@ const Checkout = () => {
             message,
         }
 
-        axios.post('https://genius-car-doctor-server-omega.vercel.app/bookings', newBooking)
+        axios.post('https://genius-car-doctor-server-side.vercel.app/bookings', newBooking)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

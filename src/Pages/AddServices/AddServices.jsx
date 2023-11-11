@@ -9,7 +9,7 @@ const AddServices = () => {
         const title = form.get('title')
         const type = form.get('type')
         const img = form.get('img')
-        const price = form.get('price')
+        const price = parseInt(form.get('price'))
         const description = form.get('description')
         const newService = { title, type, img, price, description }
         console.log(newService);
@@ -53,7 +53,7 @@ const AddServices = () => {
                         <div className="flex flex-col md:flex-row gap-5 justify-between mt-5">
                             <input name="img" type="text" placeholder="Image..." className="input input-bordered input-error w-full max-w-xs text-xs" />
 
-                            <input name="price" type="text" placeholder="Price..." className="input input-bordered input-error w-full max-w-xs text-xs" />
+                            <input name="price" type="number" placeholder="Price..." className="input input-bordered input-error w-full max-w-xs text-xs" />
                         </div>
                         <div>
                             <textarea className="h-[100px] mt-5 w-full textarea textarea-warning text-xs" name="description" id="" cols="30" rows="10" placeholder="Description..."></textarea>
